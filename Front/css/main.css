@@ -176,6 +176,18 @@ textarea {
      left: 30em;
    }
 
+   #loginPage {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: match-parent;
+     height: match-parent;
+     background-image: url("img/loginbg.jpeg");
+     background-repeat: no-repeat;
+     background-size: auto;
+     background-position: center;
+   }
+
 
 
 
