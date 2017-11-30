@@ -183,13 +183,25 @@ textarea {
 
    .loginContainer {
      text-align: center;
-     display: flex;
-     padding-top: 15em;
+     align-items: center;
+     justify-content: center;
+     margin-top: 12em;
+     padding: 5em;
+     background-color: rgba(64, 72, 84, 0.7);
+   }
+   .loginContainer input {
+     display: block;
+     width: 60%;
+     margin: 10px;
    }
 
-   .loginContainer input {
-     width: 50%;
-     margin: 5px;
+   .loginContainer input[type=password] {
+     width: 40%;
+   }
+
+   .loginContainer input[type=submit] {
+     width: 20%;
+     margin-left: 60%;
    }
 
    #loginButton {
@@ -199,8 +211,24 @@ textarea {
 
 
 
+/* ============================================================================
+    Universal color and size classes
+  =============================================================================
+*/
 
+.white {
+  color: #FFF;
+}
 
+.big {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 3em;
+}
+
+.small {
+  font-size: 13px;
+}
 
 
 
