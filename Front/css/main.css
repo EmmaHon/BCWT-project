@@ -185,22 +185,23 @@ textarea {
      text-align: center;
      align-items: center;
      justify-content: center;
+     border-radius: 10px;
      margin-top: 12em;
      padding: 5em;
-     background-color: rgba(64, 72, 84, 0.7);
+     background-color: rgba(64, 72, 84, 0.5);
    }
    .loginContainer input {
      display: block;
-     width: 60%;
+     width: 90%;
      margin: 10px;
    }
 
    .loginContainer input[type=password] {
-     width: 40%;
+     width: 60%;
    }
 
    .loginContainer input[type=submit] {
-     width: 20%;
+     width: 35%;
      margin-left: 60%;
    }
 
@@ -228,6 +229,10 @@ textarea {
 
 .small {
   font-size: 13px;
+}
+
+.warningRed {
+  border: 0.5px solid red;
 }
 
 
