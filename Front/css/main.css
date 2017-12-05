@@ -196,6 +196,10 @@ textarea {
      margin: 10px;
    }
 
+   .centeredText {
+     text-align: center;
+   }
+
    .loginContainer input[type=password] {
      width: 60%;
    }
