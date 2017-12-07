@@ -103,7 +103,41 @@ textarea {
      background-color: #292b2d;
      height: 5em;
      align-items: center;
-     justify-content: center;
+     justify-content: space-between;
+   }
+
+   .buttonContainer {
+     display: flex;
+     align-content: center;
+     width: 25%;
+   }
+
+   .buttonContainer a {
+
+     width: 25%;
+     margin: auto;
+
+   }
+
+   #logo {
+
+     width: 15%;
+     background-color: blue;
+   }
+
+   .searchFormContainer {
+     width: 60%;
+   }
+
+   .searchForm {
+     width: 50%;
+     max-width: 400px;
+     margin: auto;
+   }
+
+   .searchForm input {
+      border-radius: 5px;
+      width:100%;
    }
 
    main {
@@ -162,15 +196,6 @@ textarea {
      overflow: hidden;
    }
 
-   .searchForm {
-     width: 20em;
-
-   }
-
-   .searchForm input {
-      border-radius: 5px;
-   }
-
    .loginPage {
      display: flex;
      align-content: center;
@@ -207,11 +232,6 @@ textarea {
    .loginContainer input[type=submit] {
      width: 35%;
      margin-left: 60%;
-   }
-
-   #loginButton {
-     position: relative;
-     left: 30em;
    }
 
 
