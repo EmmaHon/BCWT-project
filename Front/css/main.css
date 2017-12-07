@@ -128,6 +128,13 @@ textarea {
      flex-wrap: wrap;
      margin-bottom: 1em;
    }
+   .MainVideoBox {
+       width: 40em;
+       align-content: center;
+       display: flex;
+       flex-wrap: wrap;
+       margin-bottom: 1em;
+   }
 
    .thumbContainer {
      position: relative;
@@ -151,6 +158,12 @@ textarea {
      left: 3.8em;
 
    }
+.thumbUp{
+    padding: 0.5em;
+}
+.thumbDown{
+    padding: 0.5em;
+}
 
    .videoInfo {
      width: 20%;
@@ -160,6 +173,10 @@ textarea {
      width: 100%;
      height: 3em;
      overflow: hidden;
+   }
+   .videoPublisher{
+       width:50%;
+       height: 1em;
    }
 
    .searchForm {
@@ -179,28 +196,34 @@ textarea {
      background-repeat: no-repeat;
      background-size: auto;
      background-position: center;
+
    }
 
    .loginContainer {
      text-align: center;
      align-items: center;
      justify-content: center;
+     border-radius: 10px;
      margin-top: 12em;
      padding: 5em;
-     background-color: rgba(64, 72, 84, 0.7);
+     background-color: rgba(64, 72, 84, 0.5);
    }
    .loginContainer input {
      display: block;
-     width: 60%;
+     width: 90%;
      margin: 10px;
    }
 
+   .centeredText {
+     text-align: center;
+   }
+
    .loginContainer input[type=password] {
-     width: 40%;
+     width: 60%;
    }
 
    .loginContainer input[type=submit] {
-     width: 20%;
+     width: 35%;
      margin-left: 60%;
    }
 
@@ -228,6 +251,10 @@ textarea {
 
 .small {
   font-size: 13px;
+}
+
+.warningRed {
+  border: 0.5px solid red;
 }
 
 
@@ -404,13 +431,15 @@ textarea {
 
     p,
     h2,
-    h3 {
+    h3,
+    h4{
         orphans: 3;
         widows: 3;
     }
 
     h2,
-    h3 {
+    h3,
+    h4{
         page-break-after: avoid;
     }
 }
