@@ -96,7 +96,9 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+body{
+    background-color: #C7C6C3;
+}
    nav {
 
      display: flex;
@@ -230,6 +232,12 @@ textarea {
    #loginButton {
      position: relative;
      left: 30em;
+   }
+   .upload{
+       position: absolute;
+       top:50%;
+       left: 50%;
+       width: 400px;
    }
 
 
