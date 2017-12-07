@@ -162,6 +162,13 @@ textarea {
      flex-wrap: wrap;
      margin-bottom: 1em;
    }
+   .MainVideoBox {
+       width: 40em;
+       align-content: center;
+       display: flex;
+       flex-wrap: wrap;
+       margin-bottom: 1em;
+   }
 
    .thumbContainer {
      position: relative;
@@ -185,6 +192,12 @@ textarea {
      left: 3.8em;
 
    }
+.thumbUp{
+    padding: 0.5em;
+}
+.thumbDown{
+    padding: 0.5em;
+}
 
    .videoInfo {
      width: 20%;
@@ -195,6 +208,10 @@ textarea {
      height: 3em;
      overflow: hidden;
    }
+   .videoPublisher{
+       width:50%;
+       height: 1em;
+   }
 
    .loginPage {
      display: flex;
@@ -204,6 +221,7 @@ textarea {
      background-repeat: no-repeat;
      background-size: auto;
      background-position: center;
+
    }
 
    .loginContainer {
@@ -433,13 +451,15 @@ textarea {
 
     p,
     h2,
-    h3 {
+    h3,
+    h4{
         orphans: 3;
         widows: 3;
     }
 
     h2,
-    h3 {
+    h3,
+    h4{
         page-break-after: avoid;
     }
 }
