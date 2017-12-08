@@ -42,7 +42,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Video.findByFilepath", query = "SELECT v FROM Video v WHERE v.filepath = :filepath")
     , @NamedQuery(name = "Video.findByVotes", query = "SELECT v FROM Video v WHERE v.votes = :votes")
     , @NamedQuery(name = "Video.findByUpload", query = "SELECT v FROM Video v WHERE v.upload = :upload")
-    , @NamedQuery(name = "Video.findByDescr", query = "SELECT v FROM Video v WHERE v.descr = :descr")})
+    , @NamedQuery(name = "Video.findByDescr", query = "SELECT v FROM Video v WHERE v.descr = :descr")
+    , @NamedQuery(name = "Video.search", query = "SELECT v from Video v WHERE v.title LIKE `%:search%` OR v.descr LIKE `%:search%´")
+    , @NamedQuery(name = "Video.getRange", query = "SELECT v from Video v WHERE v.vidid BETWEEN :from AND :to")
+})
 public class Video implements Serializable {
 
     private static final long serialVersionUID = 1L;

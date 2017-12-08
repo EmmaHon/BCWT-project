@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -35,6 +36,7 @@ public class Freshvideos implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "VIDID")
+    @Id
     private int vidid;
     @Column(name = "UPLOAD")
     @Temporal(TemporalType.DATE)
