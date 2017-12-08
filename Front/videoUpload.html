@@ -10,28 +10,27 @@
 </head>
 <body>
 <div class="uploadBox">
-    <img src="logo.jpeg class="logo">
     <h2>Upload video</h2>
-    <form action="fileUpload" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <div class="rowBox">
         <div><i class="w3-xxlarge fa fa-pencil"></i> Title</div>
-            <input class="input border" name="message" type="text">
+            <input class="input border" name="videotitle" type="text">
     </div>
 
     <div class="rowBox">
         <div><i class="w3-xxlarge fa fa-pencil"></i> Description</div>
         <div>
-            <input class="input border" name="message" type="text">
+            <input class="input border" name="videodescr" type="text">
         </div>
     </div>
 
     <div class="rowBox">
         <div><i class="w3-xxlarge fa fa-file-video-o"></i> Video</div>
-            <input class="input border" name="fileup" type="file" accept="video" multiple>
+            <input class="input border" name="video" type="file" accept="video/mp4" multiple>
             <button type="submit" value="Upload">Upload</button>
     </div>
-</form>
-    <script src="js/main.js"></script>
+  </form>
 </div>
+    <script src="js/videoUpload.js"></script>
 </body>
 </html>
