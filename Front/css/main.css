@@ -14,6 +14,15 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    font-family: sans-serif;
+}
+h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #16D3DC;
+    text-align: center;
+    font-family: sans-serif;
+
 }
 
 /*
@@ -96,14 +105,50 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+body{
+    background-color: #C7C6C3;
+}
    nav {
 
      display: flex;
      background-color: #292b2d;
      height: 5em;
      align-items: center;
-     justify-content: center;
+     justify-content: space-between;
+   }
+
+   .buttonContainer {
+     display: flex;
+     align-content: center;
+     width: 25%;
+   }
+
+   .buttonContainer a {
+
+     width: 25%;
+     margin: auto;
+
+   }
+
+   #logo {
+
+     width: 15%;
+     background-color: blue;
+   }
+
+   .searchFormContainer {
+     width: 60%;
+   }
+
+   .searchForm {
+     width: 50%;
+     max-width: 400px;
+     margin: auto;
+   }
+
+   .searchForm input {
+      border-radius: 5px;
+      width:100%;
    }
 
    main {
@@ -158,10 +203,10 @@ textarea {
      left: 3.8em;
 
    }
-.thumbUp{
+   .thumbUp{
     padding: 0.5em;
-}
-.thumbDown{
+   }
+   .thumbDown{
     padding: 0.5em;
 }
 
@@ -179,39 +224,38 @@ textarea {
        height: 1em;
    }
 
-   .searchForm {
-     width: 20em;
-
-   }
-
-   .searchForm input {
-      border-radius: 5px;
-   }
-
    .loginPage {
      display: flex;
      align-content: center;
      justify-content: center;
-     background-image: url("../img/loginbg.jpeg");
+     background-color: #524B3E;
      background-repeat: no-repeat;
      background-size: auto;
      background-position: center;
 
    }
-
    .loginContainer {
-     text-align: center;
-     align-items: center;
-     justify-content: center;
-     border-radius: 10px;
-     margin-top: 12em;
-     padding: 5em;
-     background-color: rgba(64, 72, 84, 0.5);
+       position: absolute;
+       top: 50%;
+       left:50%;
+       transform: translate(-50%,-50%);
+       width: 350px;
+       height: 420px;
+       padding:40px 40px;
+       box-sizing: border-box;
+       border-radius: 15px;
+       background: rgba(0, 0, 0,.5);
    }
    .loginContainer input {
-     display: block;
-     width: 90%;
-     margin: 10px;
+       border:none;
+       padding-top: 16px;
+       border-bottom: 1px solid #FFFFFF;
+       background: transparent;
+       outline:none;
+       height:40px;
+       color: #FFFFFF;
+       font-size: 16px;
+       font-family: sans-serif;
    }
 
    .centeredText {
@@ -219,19 +263,42 @@ textarea {
    }
 
    .loginContainer input[type=password] {
-     width: 60%;
+       width: 60%;
+       color:#FFFFFF;
+       font-size:14px;
+       font-weight:bold;
+       text-decoration:none;
    }
 
    .loginContainer input[type=submit] {
-     width: 35%;
-     margin-left: 60%;
+       border:none;
+       outline:none;
+       height:40px;
+       width:80px;
+       color: #FFFFFF;
+       font-size: 16px;
+       background: #16D3DC;
+       cursor: pointer;
+       border-radius: 16px;
+       font-family: sans-serif;
+       margin-left: 60%;
    }
+    .loginContainer input[type=submit]:hover {
+        background: #C7C6C3;
+        color: #262626;
+    }
 
    #loginButton {
      position: relative;
      left: 30em;
    }
+   .upload{
+       position: absolute;
+       top:50%;
+       left: 50%;
+       width: 400px;}
 
+=======
 
 
 /* ============================================================================
@@ -240,7 +307,7 @@ textarea {
 */
 
 .white {
-  color: #FFF;
+  color: #FFFF;
 }
 
 .big {
