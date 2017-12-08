@@ -42,8 +42,10 @@ public class LoginService {
      * @param password
      * @return 
      */
-    @POST
+    @PUT
+    @Path("/trylogin")
     @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response login(@FormParam("email") String email, @FormParam("password") String password) {
         
         Users possibleUser = seshBean.loginUser(email, password);
@@ -51,7 +53,7 @@ public class LoginService {
         NewCookie cookie;
         
         if(possibleUser != null) {
-           cookie = new NewCookie("token", Integer.toString(seshBean.getToken(email, password))); 
+           cookie = new NewCookie("token", Integer.toString(seshBean.getToken(email, password)));
            return Response.ok("Login successful").cookie(cookie).build();
         } else {
             return Response.ok("OK - No session").build();
