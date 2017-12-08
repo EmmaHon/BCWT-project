@@ -48,6 +48,10 @@ import javax.xml.bind.annotation.XmlTransient;
 })
 public class Video implements Serializable {
 
+    @Size(max = 512)
+    @Column(name = "THUMBNAILPATH")
+    private String thumbnailpath;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -182,6 +186,14 @@ public class Video implements Serializable {
     @Override
     public String toString() {
         return "Entity.Video[ vidid=" + vidid + " ]";
+    }
+
+    public String getThumbnailpath() {
+        return thumbnailpath;
+    }
+
+    public void setThumbnailpath(String thumbnailpath) {
+        this.thumbnailpath = thumbnailpath;
     }
     
 }

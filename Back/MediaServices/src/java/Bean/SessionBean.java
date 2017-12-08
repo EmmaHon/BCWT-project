@@ -84,6 +84,12 @@ public class SessionBean {
         return token.hashCode();
     }
     
+    public boolean userExists(String email, String username){
+        return (!em.createNamedQuery("Users.findByEmail").setParameter("email",email).getResultList().isEmpty() //email is in db
+                ||// OR
+                !em.createNamedQuery("Users.findByUsername").setParameter("username",username).getResultList().isEmpty());//username is taken
+    }
+    
     private void refreshViews(){
         freshVideosList = (ArrayList<Freshvideos>) em.createNamedQuery("Freshvideos.findAll").getResultList();
         topVideosList = (ArrayList<Topvideos>) em.createNamedQuery("Topvideos.findAll").getResultList();
