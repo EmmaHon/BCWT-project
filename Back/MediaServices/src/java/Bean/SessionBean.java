@@ -11,12 +11,15 @@ import Entity.Topvideos;
 import Entity.Users;
 import Entity.Video;
 import Entity.Vote;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -44,6 +47,41 @@ public class SessionBean {
                  }
              }
          }, 1, 1, TimeUnit.HOURS);
+    }
+    
+    /**
+     * Tries to find the user credentials corresponding to the user trying to
+     * login.
+     * @param email
+     * @param password
+     * @return null Users object if query is null, and a Users object representing
+     * the correct user credentials if query is successful
+     */
+    public Users loginUser(String email, String password) {
+    
+       Query findUser = em.createNamedQuery("Users.findUser");
+       
+       findUser.setParameter("email", email);
+       findUser.setParameter("password", password);
+       
+       return (Users)findUser.getResultList().get(0);
+    }
+    
+    /**
+     * Returns a token for the authentication of the user.
+     * @param email
+     * @param password
+     * @return 
+     */
+    public int getToken(String email, String password) {
+        
+        String token = email + password;
+        
+        Date present = new Date(Calendar.getInstance().getTime().getTime());
+        
+        token += present.toString();
+        
+        return token.hashCode();
     }
     
     private void refreshViews(){

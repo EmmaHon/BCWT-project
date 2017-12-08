@@ -5,14 +5,17 @@
  */
 package Service;
 
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
+import Bean.SessionBean;
+import Entity.Users;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -22,8 +25,8 @@ import javax.ws.rs.core.MediaType;
 @Path("login")
 public class LoginService {
 
-    @Context
-    private UriInfo context;
+    
+    private SessionBean seshBean;
 
     /**
      * Creates a new instance of LoginService
@@ -32,14 +35,27 @@ public class LoginService {
     }
 
     /**
-     * Retrieves representation of an instance of Service.LoginService
-     * @return an instance of java.lang.String
+     * Logs in the user if the credentials match an entry in the database.
+     * Sends a Cookie object to the client. Creates a Token entry for a user in
+     * the database
+     * @param email
+     * @param password
+     * @return 
      */
-    @GET
+    @POST
     @Produces(MediaType.TEXT_PLAIN)
-    public String getText() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public Response login(@FormParam("email") String email, @FormParam("password") String password) {
+        
+        Users possibleUser = seshBean.loginUser(email, password);
+        
+        NewCookie cookie;
+        
+        if(possibleUser != null) {
+           cookie = new NewCookie("token", Integer.toString(seshBean.getToken(email, password))); 
+           return Response.ok("Login successful").cookie(cookie).build();
+        } else {
+            return Response.ok("OK - No session").build();
+        }
     }
 
     /**
