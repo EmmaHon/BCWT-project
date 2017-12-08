@@ -5,33 +5,30 @@
     <title>Upload</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="uploadPage">
-<div class="upload">
-<form action="fileUpload" method="post" enctype="multipart/form-data" class="container card-4 cool-brown text-lgreen margin">
-    <h2 class="center">Upload video</h2>
+<body>
+<div class="uploadBox">
+    <img src="logo.jpeg class="logo">
+    <h2>Upload video</h2>
+    <form action="fileUpload" method="post" enctype="multipart/form-data">
+        <div class="rowBox">
+        <div><i class="w3-xxlarge fa fa-pencil"></i> Title</div>
+            <input class="input border" name="message" type="text">
+    </div>
 
-    <div class="row section">
-        <div class="col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
-        <div class="rest">
-            <input class="input border" name="message" type="text" placeholder="Title">
+    <div class="rowBox">
+        <div><i class="w3-xxlarge fa fa-pencil"></i> Description</div>
+        <div>
+            <input class="input border" name="message" type="text">
         </div>
     </div>
 
-    <div class="row section">
-        <div class="col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
-        <div class="rest">
-            <input class="input border" name="message" type="text" placeholder="Description">
-        </div>
-    </div>
-
-    <div class="row section">
-        <div class="col" style="width:50px"><i class="w3-xxlarge fa fa-file"></i></div>
-        <div class="rest">
+    <div class="rowBox">
+        <div><i class="w3-xxlarge fa fa-file-video-o"></i> Video</div>
             <input class="input border" name="fileup" type="file" accept="video" multiple>
-            <button class="button section green padding" type="submit" value="Upload">Upload</button>
-        </div>
+            <button type="submit" value="Upload">Upload</button>
     </div>
 </form>
     <script src="js/main.js"></script>
