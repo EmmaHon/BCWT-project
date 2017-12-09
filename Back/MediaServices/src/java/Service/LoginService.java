@@ -8,6 +8,7 @@ package Service;
 import Bean.SessionBean;
 import Entity.Users;
 import static com.sun.activation.registries.LogSupport.log;
+import javax.ejb.EJB;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -26,7 +27,8 @@ import javax.ws.rs.core.Response;
  */
 @Path("login")
 public class LoginService {
-
+    
+    @EJB
     private SessionBean seshBean;
 
     /**
@@ -44,7 +46,8 @@ public class LoginService {
      * @return 
      */
     @POST
-    @Produces (MediaType.APPLICATION_JSON)
+    @Path("trylogin")
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response login(@FormParam("email") String email, @FormParam("password") String password) {
         
@@ -53,10 +56,12 @@ public class LoginService {
         NewCookie cookie;
         if(possibleUser != null) {
            cookie = new NewCookie("token", Integer.toString(seshBean.getToken(email, password)));
-           return Response.ok("Login successful",MediaType.APPLICATION_JSON).cookie(cookie).build();
+           String rsp = "{\"status\": \"ok\",\"cookie\": \""+cookie.toString()+"\"}";
+           return  Response.ok(rsp,MediaType.APPLICATION_JSON).build();
            
         } else {
-            return Response.ok("OK - No session",MediaType.APPLICATION_JSON).build();
+            String rsp = "{\"status\": \"fail\"}";
+            return Response.ok(rsp, MediaType.APPLICATION_JSON).build();
         }
     }
     

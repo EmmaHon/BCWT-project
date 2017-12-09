@@ -2,6 +2,7 @@
 const settings = {
 
   method:'POST',
+  headers: 'Content-Type', 'MediaType.APPLICATION_JSON',
   data: new FormData(document.querySelector('#loginform'))
 };
 
@@ -9,16 +10,11 @@ const trylogin = (evt) => {
 
   evt.preventDefault();
 
-  console.log("trying");
-
-  fetch("webresources/login", settings)
-  .then((response) => {
-  return response.json()
+  fetch("webresources/login/trylogin", settings)
+  .then((Response) => {
+      return response.toString()
+      
   })
-  .then((response) => {
-      console.log(response)
-  })
-
 }
 
 document.querySelector('#loginform').addEventListener('submit', trylogin);
