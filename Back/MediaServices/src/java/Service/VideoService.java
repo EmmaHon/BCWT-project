@@ -11,6 +11,7 @@ import Entity.Hotvideos;
 import Entity.Topvideos;
 import Entity.Video;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -21,6 +22,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -65,8 +68,8 @@ public class VideoService {
     @GET
     @Path("getVidByID")
     @Produces(MediaType.APPLICATION_JSON)
-    public Video getVideo(@QueryParam("vid_id")int nr){
-        return sb.vidByID(nr);
+    public Response getVideo(@QueryParam("vid_id")int nr){
+        return Response.ok(sb.vidByID(nr)).cookie(new NewCookie("test", "123")).build();
     }
     
     @GET
@@ -79,21 +82,21 @@ public class VideoService {
     @GET
     @Path("getFreshVideos")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Freshvideos> getFreshVideosList(){
+    public List<Freshvideos> getFreshVideosList(){
         return sb.getFreshVideosList();
     }
     
     @GET
     @Path("getHotVideos")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Hotvideos> getHotVideosList(){
+    public List<Hotvideos> getHotVideosList(){
         return sb.getHotVideosList();
     }
     
     @GET
     @Path("getTopVideos")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Topvideos> getTopVideosList(){
+    public List<Topvideos> getTopVideosList(){
         return sb.getTopVideosList();
     }
 }

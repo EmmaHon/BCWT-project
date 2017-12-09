@@ -14,6 +14,7 @@ import Entity.Vote;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -28,9 +29,9 @@ import javax.persistence.Query;
 @Stateless
 public class SessionBean {
     
-    private ArrayList<Freshvideos> freshVideosList = new ArrayList<>();
-    private ArrayList<Hotvideos> hotVideosList = new ArrayList<>();
-    private ArrayList<Topvideos> topVideosList = new ArrayList<>();
+    private List<Freshvideos> freshVideosList;
+    private List<Hotvideos> hotVideosList;
+    private List<Topvideos> topVideosList;
     
     private EntityManager em;
 
@@ -91,9 +92,9 @@ public class SessionBean {
     }
     
     private void refreshViews(){
-        freshVideosList = (ArrayList<Freshvideos>) em.createNamedQuery("Freshvideos.findAll").getResultList();
-        topVideosList = (ArrayList<Topvideos>) em.createNamedQuery("Topvideos.findAll").getResultList();
-        hotVideosList = (ArrayList<Hotvideos>) em.createNamedQuery("Hotvideos.findAll").getResultList();
+        freshVideosList = em.createNamedQuery("Freshvideos.findAll").getResultList();
+        topVideosList = em.createNamedQuery("Topvideos.findAll").getResultList();
+        hotVideosList = em.createNamedQuery("Hotvideos.findAll").getResultList();
     }
     
     public Users insert(Users usr){
@@ -127,15 +128,15 @@ public class SessionBean {
         return new ArrayList<>(em.createNamedQuery("Video.getRange").setParameter(from, to).getResultList());
     }
     
-    public ArrayList<Freshvideos> getFreshVideosList(){
+    public List<Freshvideos> getFreshVideosList(){
         return freshVideosList;
     }
     
-    public ArrayList<Hotvideos> getHotVideosList(){
+    public List<Hotvideos> getHotVideosList(){
         return hotVideosList;
     }
     
-    public ArrayList<Topvideos> getTopVideosList(){
+    public List<Topvideos> getTopVideosList(){
         return topVideosList;
     }
 }

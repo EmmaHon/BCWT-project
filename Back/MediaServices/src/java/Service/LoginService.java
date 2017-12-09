@@ -7,9 +7,11 @@ package Service;
 
 import Bean.SessionBean;
 import Entity.Users;
+import static com.sun.activation.registries.LogSupport.log;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
@@ -25,7 +27,6 @@ import javax.ws.rs.core.Response;
 @Path("login")
 public class LoginService {
 
-    
     private SessionBean seshBean;
 
     /**
@@ -42,30 +43,21 @@ public class LoginService {
      * @param password
      * @return 
      */
-    @PUT
-    @Path("/trylogin")
-    @Produces(MediaType.TEXT_PLAIN)
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @POST
+    @Produces (MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response login(@FormParam("email") String email, @FormParam("password") String password) {
         
         Users possibleUser = seshBean.loginUser(email, password);
         
         NewCookie cookie;
-        
         if(possibleUser != null) {
            cookie = new NewCookie("token", Integer.toString(seshBean.getToken(email, password)));
-           return Response.ok("Login successful").cookie(cookie).build();
+           return Response.ok("Login successful",MediaType.APPLICATION_JSON).cookie(cookie).build();
+           
         } else {
-            return Response.ok("OK - No session").build();
+            return Response.ok("OK - No session",MediaType.APPLICATION_JSON).build();
         }
     }
-
-    /**
-     * PUT method for updating or creating an instance of LoginService
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.TEXT_PLAIN)
-    public void putText(String content) {
-    }
+    
 }
