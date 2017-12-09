@@ -1,0 +1,87 @@
+body{
+    margin:0;
+    padding: 0;
+    background-color: #524B3E;
+    font-family: sans-serif;
+}
+.uploadBox{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    height: 420px;
+    padding:40px 40px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background: rgba(0, 0, 0,.5);
+}
+.center{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    position:absolute;
+    top: calc(-100px/2);
+    left: calc(50%-50px);
+}
+h2{
+    margin:0;
+    padding:0 0 20px;
+    color: #16D3DC;
+    text-align: center;
+    font-family: sans-serif;
+}
+.rowBox{
+    margin:0;
+    padding:0;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+.rowBox input{
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+.rowBox input[type="text"]
+.rowBox input[type="file"]{
+    border:none;
+    padding-top: 16px;
+    border-bottom: 1px solid #FFFFFF;
+    background: transparent;
+    outline:none;
+    height:40px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+::placeholder
+{
+    color: rgba(255, 255, 255,.5);
+}
+.rowBox button {
+    border:none;
+    outline:none;
+    height:40px;
+    width:80px;
+    color: #FFFFFF;
+    font-size: 16px;
+    background: #16D3DC;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: sans-serif;
+}
+.rowBox button:hover {
+    background: #C7C6C3;
+    color:#262626;
+}
+.rowBox a{
+    color:#FFFFFF;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+}
+@media screen and (min-width: 600px){
+
+}

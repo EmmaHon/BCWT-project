@@ -111,7 +111,6 @@ body{
    nav {
 
      display: flex;
-     width: 100%;
      background-color: #292b2d;
      height: 5em;
      align-items: center;
@@ -168,13 +167,11 @@ body{
    .videoBox {
 
      width: 15em;
-     border-radius: 0.5em;
      border: 1px solid black;
      align-content: center;
      display: flex;
      flex-wrap: wrap;
      margin-bottom: 1em;
-     padding: 1em;
    }
    .MainVideoBox {
        width: 40em;
@@ -250,7 +247,6 @@ body{
        background: rgba(0, 0, 0,.5);
    }
    .loginContainer input {
-
        border:none;
        padding-top: 16px;
        border-bottom: 1px solid #FFFFFF;
@@ -275,44 +271,28 @@ body{
    }
 
    .loginContainer input[type=submit] {
-
-      text-align: center;
-      padding-bottom: 2.2em;
-      margin-top: 0.2em;
-      border:none;
-      outline:none;
-      height:2.5em;
-      width:8em;
-      color: #FFFFFF;
-      font-size: 1em;
-      background: #16D3DC;
-      cursor: pointer;
-      border-radius: 1em;
-      font-family: sans-serif;
-      margin-left: 60%
+       border:none;
+       outline:none;
+       height:40px;
+       width:80px;
+       color: #FFFFFF;
+       font-size: 16px;
+       background: #16D3DC;
+       cursor: pointer;
+       border-radius: 16px;
+       font-family: sans-serif;
+       margin-left: 60%;
    }
     .loginContainer input[type=submit]:hover {
         background: #C7C6C3;
         color: #262626;
     }
 
-   .upload{
+    .upload{
        position: absolute;
        top:50%;
        left: 50%;
-       width: 400px;
-     }
-
-   .blueButton {
-
-     font-family: sans-serif;
-     text-align: center;
-     border-radius: 1em;
-     height: 2.5em;
-     width: 7em;
-     border: none;
-     outline: none;
-   }
+       width: 400px;}
 
 
 /* ============================================================================
@@ -322,18 +302,6 @@ body{
 
 .white {
   color: #FFFF;
-}
-
-.darkBackground {
-  background: rgba(0, 0, 0,.5);
-}
-
-.brightBlueBackground {
-  background: #16D3DC;
-}
-
-.brightBlue {
-  color: #16D3DC;
 }
 
 .big {
@@ -349,6 +317,13 @@ body{
 .warningRed {
   border: 0.5px solid red;
 }
+
+
+
+
+
+
+
 
 
 /* ==========================================================================
