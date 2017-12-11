@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -30,6 +31,7 @@ import javax.ws.rs.core.Cookie;
 @WebServlet(name = "FileUpload", urlPatterns = {"/upload"})
 @MultipartConfig(location = "/media/videos")
 public class Upload extends HttpServlet {
+    @EJB
     private SessionBean sb;
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -60,23 +62,7 @@ public class Upload extends HttpServlet {
             //vid.setUserid();
         }
     }
-    
-    /*@Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log("Hello there???");
-        System.err.println("Here we go...");
-      
-        //response.addHeader("Access-Control-Max-Age", "1728000");
-        try (PrintWriter out = response.getWriter()) {
-            out.print("test");
-        }
-    }
-    */
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+
     @Override
     public String getServletInfo() {
         return "Short description";
