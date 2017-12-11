@@ -16,9 +16,9 @@
         <div class="loginContainer">
           <!-- TODO: PLACE LINK TO LOGIN SERVICE -->
           <h2>Login</h2>
-          <form id="loginform" action="/webservices/login/trylogin" method="POST">
-            <input type="email" required placeholder="example@email.com"/>
-            <input type="password" required placeholder="******"/>
+          <form id="loginform" action="/MediaServices/login" method="POST">
+            <input type="email" name="email" required placeholder="example@email.com"/>
+            <input type="password" name="password" required placeholder="******"/>
             <input type="submit" value="Log in"/>
           </form>
           <p class="white small">
@@ -26,6 +26,5 @@
             <a href="register.html">here</a> to register !
           </p>
         </div>
-      <script src="js/login.js"></script>
     </body>
 </html>

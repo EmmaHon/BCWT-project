@@ -7,15 +7,12 @@ package Service;
 
 import Bean.SessionBean;
 import Entity.Users;
-import static com.sun.activation.registries.LogSupport.log;
 import javax.ejb.EJB;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
@@ -51,6 +48,7 @@ public class LoginService {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response login(@FormParam("email") String email, @FormParam("password") String password) {
         
+        try {
         Users possibleUser = seshBean.loginUser(email, password);
         
         NewCookie cookie;
@@ -62,6 +60,9 @@ public class LoginService {
         } else {
             String rsp = "{\"status\": \"fail\"}";
             return Response.ok(rsp, MediaType.APPLICATION_JSON).build();
+        }
+        } catch (Exception e) {
+            return Response.serverError().build();
         }
     }
     

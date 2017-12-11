@@ -9,8 +9,6 @@ import Bean.SessionBean;
 import Entity.Video;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Calendar;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -20,17 +18,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.core.Cookie;
 
 /**
  *
  * @author danie
  */
-@WebServlet(name = "FileUpload", urlPatterns = {"/upload"})
+@WebServlet(name = "UploadContent", urlPatterns = {"/upload"})
 @MultipartConfig(location = "/media/videos")
 public class Upload extends HttpServlet {
+    
     @EJB
     private SessionBean sb;
     /**
@@ -59,7 +55,8 @@ public class Upload extends HttpServlet {
             vid.setTitle(request.getParameter("videotitle"));
             vid.setFilepath("/media/videos"+p.getSubmittedFileName());
             vid.setUpload(Calendar.getInstance().getTime());
-            //vid.setUserid();
+            sb.upload(vid);
+            
         }
     }
 

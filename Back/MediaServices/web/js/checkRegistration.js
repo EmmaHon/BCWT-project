@@ -8,9 +8,7 @@ const verifyPasswd = (evt) => {
   evt.preventDefault();
 
   const firstPasswd = document.querySelector('input[type=password]');
-  console.log(firstPasswd.value);
   const secondPasswd = document.querySelector('input[type=password]:nth-child(3)');
-  console.log(secondPasswd.value);
 
 // Adds a warning color and text if the password don't match
   if(firstPasswd.value === secondPasswd.value) {
@@ -22,6 +20,7 @@ const verifyPasswd = (evt) => {
     secondPasswd.classList.add("warningRed");
     alert("Passwords do not match ! Please checks the passwords.");
   }
+  document.querySelector('form').submit();
 }
 
 document.querySelector("form").addEventListener("submit", verifyPasswd);

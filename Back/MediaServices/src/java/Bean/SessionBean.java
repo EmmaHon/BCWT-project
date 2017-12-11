@@ -20,6 +20,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
@@ -33,6 +34,7 @@ public class SessionBean {
     private List<Hotvideos> hotVideosList;
     private List<Topvideos> topVideosList;
     
+    @PersistenceContext //("MediaServicesPU")
     private EntityManager em;
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -58,7 +60,7 @@ public class SessionBean {
      * @return null Users object if query is null, and a Users object representing
      * the correct user credentials if query is successful
      */
-    public Users loginUser(String email, String password) {
+    public Users loginUser(String email, String password) throws Exception {
     
        Query findUser = em.createNamedQuery("Users.findUser");
        
