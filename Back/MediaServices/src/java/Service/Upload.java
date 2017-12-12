@@ -45,19 +45,17 @@ public class Upload extends HttpServlet {
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
         
-        try (PrintWriter out = response.getWriter()) {
+            PrintWriter out = response.getWriter();
             Part p = request.getPart("video");
             p.write(p.getSubmittedFileName());
-            out.print("{\"test\" : \"" + p.getSubmittedFileName() + "\"}");
+            out.print("{\"test\" : \"" + p.getSubmittedFileName() + request.getParameter("videodescr") + request.getParameter("videotitle") + "\"}");
              
             Video vid = new Video();
             vid.setDescr(request.getParameter("videodescr"));
             vid.setTitle(request.getParameter("videotitle"));
             vid.setFilepath("/media/videos"+p.getSubmittedFileName());
             vid.setUpload(Calendar.getInstance().getTime());
-            sb.upload(vid);
-            
-        }
+            sb.upload(vid); 
     }
 
     @Override

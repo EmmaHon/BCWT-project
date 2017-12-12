@@ -7,6 +7,7 @@ package Service;
 
 import Bean.SessionBean;
 import Entity.Users;
+import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -26,6 +27,8 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("register")
 public class RegisterService {
+    
+    @EJB
     private SessionBean sb;
 
     @Context
@@ -76,7 +79,6 @@ public class RegisterService {
         user.setToken(token);
         user.setIsadmin(Boolean.FALSE);
         
-        sb.insert(user);
         
         return "User registered successfuly";
     }

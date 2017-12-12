@@ -46,7 +46,7 @@ public class SessionBean {
                  try{
                      refreshViews();
                  }catch(Exception pokemon){
-                     System.out.println("Found a shiny "+pokemon.getMessage());
+                     System.out.println("Found a shiny "+pokemon.getLocalizedMessage());
                  }
              }
          }, 1, 1, TimeUnit.HOURS);
@@ -83,8 +83,10 @@ public class SessionBean {
         Date present = new Date(Calendar.getInstance().getTime().getTime());
         
         token += present.toString();
-        
-        return token.hashCode();
+        int hash = token.hashCode();
+        //persist token to DB
+        em.createNativeQuery("UPDATE users u SET token = "+hash+" WHERE email = '"+email+"' AND password = '"+password+"'").executeUpdate();
+        return hash;
     }
     
     public boolean userExists(String email, String username){
@@ -94,19 +96,27 @@ public class SessionBean {
     }
     
     private void refreshViews(){
-        freshVideosList = em.createNamedQuery("Freshvideos.findAll").getResultList();
-        topVideosList = em.createNamedQuery("Topvideos.findAll").getResultList();
-        hotVideosList = em.createNamedQuery("Hotvideos.findAll").getResultList();
+        freshVideosList = em.createNamedQuery("Freshvideos.findAll",Freshvideos.class).getResultList();
+        topVideosList = em.createNamedQuery("Topvideos.findAll",Topvideos.class).getResultList();
+        hotVideosList = em.createNamedQuery("Hotvideos.findAll",Hotvideos.class).getResultList();
     }
     
-    public Users insert(Users usr){
-        em.persist(usr);
-        return usr;
+    public String insert(Users usr){
+        try{em.persist(usr);
+        }
+        catch(Error e){
+            return e.getLocalizedMessage();
+        };
+        return "success";
     }
     
-    public Video upload(Video vid){
-        em.persist(vid);
-        return vid;
+    public String upload(Video vid){
+        try{em.persist(vid);
+        }
+        catch(Error e){
+            return e.getLocalizedMessage();
+        }
+        return "Success";
     }
     
     public Vote giveVote(Vote vote){
