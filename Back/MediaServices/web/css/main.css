@@ -71,6 +71,7 @@ img,
 svg,
 video {
     vertical-align: middle;
+
 }
 
 /*
@@ -108,37 +109,35 @@ textarea {
 body{
     background-color: #C7C6C3;
 }
-   nav {
+nav {
+    display: flex;
+    width: 100%;
+    background-color: #292b2d;
+    height: 5em;
+    align-items: center;
+    justify-content: space-between
+}
 
-     display: flex;
-     background-color: #292b2d;
-     height: 5em;
-     align-items: center;
-     justify-content: space-between;
-   }
+.buttonContainer {
+    display: flex;
+    align-content: center;
+    width: 25%;
+}
 
-   .buttonContainer {
-     display: flex;
-     align-content: center;
-     width: 25%;
-   }
+.buttonContainer a {
+    width: 25%;
+    margin: auto;
 
-   .buttonContainer a {
+}
 
-     width: 25%;
-     margin: auto;
+#logo {
+    width: 15%;
+    background-color: blue;
+}
 
-   }
-
-   #logo {
-
-     width: 15%;
-     background-color: blue;
-   }
-
-   .searchFormContainer {
-     width: 60%;
-   }
+.searchFormContainer {
+    width: 60%;
+}
 
    .searchForm {
      width: 50%;
@@ -167,22 +166,27 @@ body{
    .videoBox {
 
      width: 15em;
+     border-radius: 0.5em;
      border: 1px solid black;
      align-content: center;
      display: flex;
      flex-wrap: wrap;
      margin-bottom: 1em;
+     padding: 1em;
+       background-color:  #16D3DC;
    }
    .MainVideoBox {
-       width: 40em;
+       width: 100%;
+       height: auto;
        align-content: center;
        display: flex;
        flex-wrap: wrap;
        margin-bottom: 1em;
-   }
 
+}
    .thumbContainer {
      position: relative;
+       background-color: #16D3DC;
    }
 
    .thumbLink:hover .playIcon{
@@ -203,12 +207,6 @@ body{
      left: 3.8em;
 
    }
-   .thumbUp{
-    padding: 0.5em;
-   }
-   .thumbDown{
-    padding: 0.5em;
-}
 
    .videoInfo {
      width: 20%;
@@ -247,6 +245,7 @@ body{
        background: rgba(0, 0, 0,.5);
    }
    .loginContainer input {
+
        border:none;
        padding-top: 16px;
        border-bottom: 1px solid #FFFFFF;
@@ -271,28 +270,48 @@ body{
    }
 
    .loginContainer input[type=submit] {
-       border:none;
-       outline:none;
-       height:40px;
-       width:80px;
-       color: #FFFFFF;
-       font-size: 16px;
-       background: #16D3DC;
-       cursor: pointer;
-       border-radius: 16px;
-       font-family: sans-serif;
-       margin-left: 60%;
+
+      text-align: center;
+      padding-bottom: 2.2em;
+      margin-top: 0.2em;
+      border:none;
+      outline:none;
+      height:2.5em;
+      width:8em;
+      color: #FFFFFF;
+      font-size: 1em;
+      background: #16D3DC;
+      cursor: pointer;
+      border-radius: 1em;
+      font-family: sans-serif;
+      margin-left: 60%
    }
     .loginContainer input[type=submit]:hover {
         background: #C7C6C3;
         color: #262626;
     }
 
-    .upload{
+   .upload{
        position: absolute;
        top:50%;
        left: 50%;
-       width: 400px;}
+       width: 400px;
+     }
+
+   .blueButton {
+
+     font-family: sans-serif;
+     text-align: center;
+     border-radius: 1em;
+     height: 2.5em;
+     width: 7em;
+     border: none;
+     outline: none;
+   }
+.blueButton:hover {
+    background: #C7C6C3;
+    color:#262626;
+}
 
 
 /* ============================================================================
@@ -302,6 +321,19 @@ body{
 
 .white {
   color: #FFFF;
+}
+
+.darkBackground {
+  background: rgba(0, 0, 0,.5);
+}
+
+.brightBlueBackground {
+  background: #16D3DC;
+}
+
+
+.brightBlue {
+  color: #16D3DC;
 }
 
 .big {
@@ -317,13 +349,6 @@ body{
 .warningRed {
   border: 0.5px solid red;
 }
-
-
-
-
-
-
-
 
 
 /* ==========================================================================

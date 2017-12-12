@@ -201,7 +201,11 @@ sup {
 
 audio,
 video {
-  display: inline-block;
+    display: inline-block;
+    width: auto;
+    height:100%;
+    position: relative;
+
 }
 
 /**

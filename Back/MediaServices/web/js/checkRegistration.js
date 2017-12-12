@@ -12,7 +12,7 @@ const verifyPasswd = (evt) => {
 
 // Adds a warning color and text if the password don't match
   if(firstPasswd.value === secondPasswd.value) {
-    console.log('match !');
+    console.log('passwords match !');
     firstPasswd.classList.remove("warningRed");
     secondPasswd.classList.remove("warningRed");
   } else {
@@ -20,6 +20,7 @@ const verifyPasswd = (evt) => {
     secondPasswd.classList.add("warningRed");
     alert("Passwords do not match ! Please checks the passwords.");
   }
+  
   document.querySelector('form').submit();
 }
 

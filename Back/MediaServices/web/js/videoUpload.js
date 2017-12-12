@@ -1,3 +1,5 @@
+'use strict'
+
 const uploadMedia = (evt) => {
 
   evt.preventDefault();
