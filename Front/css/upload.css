@@ -11,23 +11,23 @@ body{
     transform: translate(-50%,-50%);
     width: 350px;
     height: 420px;
-    padding:40px 40px;
+    padding:2.5em 2.5em;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 1em;
     background: rgba(0, 0, 0,.5);
 }
 .center{
-    width: 100px;
-    height: 100px;
+    width: 6.25em;
+    height: 6.25em;
     border-radius: 50%;
     overflow: hidden;
     position:absolute;
-    top: calc(-100px/2);
-    left: calc(50%-50px);
+    top: calc(-6.25em/2);
+    left: calc(50%-3.125em);
 }
 h2{
     margin:0;
-    padding:0 0 20px;
+    padding:0 0 1.25em;
     color: #16D3DC;
     text-align: center;
     font-family: sans-serif;
@@ -41,19 +41,19 @@ h2{
 }
 .rowBox input{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
     font-family: sans-serif;
 }
 .rowBox input[type="text"]
 .rowBox input[type="file"]{
     border:none;
-    padding-top: 16px;
+    padding-top: 1em;
     border-bottom: 1px solid #FFFFFF;
     background: transparent;
     outline:none;
-    height:40px;
+    height:2.5em;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 1em;
     font-family: sans-serif;
 }
 ::placeholder
@@ -63,13 +63,13 @@ h2{
 .rowBox button {
     border:none;
     outline:none;
-    height:40px;
-    width:80px;
+    height: 2.5em;
+    width:5em;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 1em;
     background: #16D3DC;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 1.25em;
     font-family: sans-serif;
 }
 .rowBox button:hover {
@@ -78,10 +78,18 @@ h2{
 }
 .rowBox a{
     color:#FFFFFF;
-    font-size:14px;
+    font-size: 0.875em;
     font-weight:bold;
     text-decoration:none;
 }
 @media screen and (min-width: 600px){
+    .container {
+        text-align: center;
+    }
 
+    .container img {
+        margin: auto;
+        float: none;
+        display: block;
+    }
 }

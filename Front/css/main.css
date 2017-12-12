@@ -71,6 +71,7 @@ img,
 svg,
 video {
     vertical-align: middle;
+
 }
 
 /*
@@ -108,38 +109,35 @@ textarea {
 body{
     background-color: #C7C6C3;
 }
-   nav {
+nav {
+    display: flex;
+    width: 100%;
+    background-color: #292b2d;
+    height: 5em;
+    align-items: center;
+    justify-content: space-between
+}
 
-     display: flex;
-     width: 100%;
-     background-color: #292b2d;
-     height: 5em;
-     align-items: center;
-     justify-content: space-between;
-   }
+.buttonContainer {
+    display: flex;
+    align-content: center;
+    width: 25%;
+}
 
-   .buttonContainer {
-     display: flex;
-     align-content: center;
-     width: 25%;
-   }
+.buttonContainer a {
+    width: 25%;
+    margin: auto;
 
-   .buttonContainer a {
+}
 
-     width: 25%;
-     margin: auto;
+#logo {
+    width: 15%;
+    background-color: blue;
+}
 
-   }
-
-   #logo {
-
-     width: 15%;
-     background-color: blue;
-   }
-
-   .searchFormContainer {
-     width: 60%;
-   }
+.searchFormContainer {
+    width: 60%;
+}
 
    .searchForm {
      width: 50%;
@@ -175,17 +173,20 @@ body{
      flex-wrap: wrap;
      margin-bottom: 1em;
      padding: 1em;
+       background-color:  #16D3DC;
    }
    .MainVideoBox {
-       width: 40em;
+       width: 100%;
+       height: auto;
        align-content: center;
        display: flex;
        flex-wrap: wrap;
        margin-bottom: 1em;
-   }
 
+}
    .thumbContainer {
      position: relative;
+       background-color: #16D3DC;
    }
 
    .thumbLink:hover .playIcon{
@@ -206,12 +207,6 @@ body{
      left: 3.8em;
 
    }
-   .thumbUp{
-    padding: 0.5em;
-   }
-   .thumbDown{
-    padding: 0.5em;
-}
 
    .videoInfo {
      width: 20%;
@@ -313,6 +308,10 @@ body{
      border: none;
      outline: none;
    }
+.blueButton:hover {
+    background: #C7C6C3;
+    color:#262626;
+}
 
 
 /* ============================================================================
@@ -331,6 +330,7 @@ body{
 .brightBlueBackground {
   background: #16D3DC;
 }
+
 
 .brightBlue {
   color: #16D3DC;
